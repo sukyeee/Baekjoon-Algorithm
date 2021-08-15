@@ -14,33 +14,31 @@ int main(int argc, const char * argv[]) {
     cin>>num;
     int n = num.length();
     
-    if(num == "0") {
-        cout << "0";
-        return 0;
-    }
-    int two[n];
-    int sum = 0;
+    long long two[n];
+    long long eight[n];
+    int cnt = 0, j=0;
     
-    for(int i=0;i<n;i++)two[i] = num[i]-'0';
-    for(int i=0;i<n;i++){
-       int a = pow(2,(n-i)-1);
-        if(two[i] == 1) sum += a; //sum 204
-    }
-    int N = sum;
-    int cnt=0;
-    while(N>0){
-        N = N/10;
+    for(int i=0;i<n;i++){two[i] = num[i]-'0'; eight[i]=0;}
+    
+    for(int i=n-1;i>=0;i--){
+        if(two[i] == 1){
+            eight[j] += pow(2,cnt );
+        }
         cnt++;
-    }
-    int mod[cnt];
-  
-    for(int i=0;i<cnt;i++){
-        mod[i] = sum%8;
-        sum=sum/8;
+        
+        if(cnt%3==0){
+            j++;
+            cnt=0;
+        }
     }
     
-    for(int i=0;i<cnt;i++) {
-        if(mod[(cnt-i)-1] != 0 ) cout << mod[(cnt-i)-1];
+    for(int i=n-1;i>=0;i--){
+        if(eight[i] != 0) cout<<eight[i];
+        else if(eight[0] == 0) {
+            cout << "0";
+            break;
+        }
+        
     }
     return 0;
 }
