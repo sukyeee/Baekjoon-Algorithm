@@ -3,7 +3,7 @@
 ##
 
 lion[1] = 3, lion[2] = 7, lion[3] = 17, lion[4] = 41, ...  
-lion[i] = (lion[i-1]\*2 + lion[i-2]) 규칙이 성립한다.
+`lion[i] = (lion[i-1]*2 + lion[i-2])` 규칙이 성립한다.
 
 ### 코드
 
